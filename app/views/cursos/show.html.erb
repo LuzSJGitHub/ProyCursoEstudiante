@@ -10,7 +10,17 @@
   <%= @curso.descripcion %>
 </p>
 
-<%= @curso.estudiante.count %>
+<p>
+  <strong>Número de estudiantes: </strong>
+  <%= @curso.estudiante.count %>
+</p>
+
+<ul>
+  <% @curso.estudiante.each do |t| %>
+    <li><%= t.app_paterno %> 
+      <%= t.app_materno %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Editar', edit_curso_path(@curso) %> |
 <%= link_to 'Atrás', cursos_path %>
